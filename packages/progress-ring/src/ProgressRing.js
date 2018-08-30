@@ -25,13 +25,6 @@ export default class ProgressRing extends Component {
 	constructor(props) {
 		super(props);
 
-		this.setSVGNode = this.setSVGNode.bind(this);
-		this.svgNode = undefined;
-	}
-
-	setSVGNode(node) {
-		this.svgNode = node.querySelectorAll('.hig__progress-ring__segment');
-		console.log(this.svgNode);
 	}
 
 	render() {
@@ -42,10 +35,6 @@ export default class ProgressRing extends Component {
 				timeout={5500}
 				appear={true}
 				classNames="fade"
-				onEnter={(node) => {console.log(node)}}
-				onEntering={(state) => {console.log(state.classList) }}
-				onEntered={this.setSVGNode}
-				animatedNode={this.svgNode}
 				>
 				<ProgressRingIndeterminateBehavior>
 					<ProgressRingPresenter />

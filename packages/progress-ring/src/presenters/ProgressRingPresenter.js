@@ -27,10 +27,24 @@ export default class ProgressRingPresenter extends Component {
     console.log(props);
   }
 
+  /** @type {HTMLDivElement} */
+    containerRef;
+
+    /**
+     * @param {HTMLDivElement} containerRef
+     */
+    refContainer = containerRef => {
+      this.containerRef = containerRef;
+    };
+
   /* static defaultProps = {
     checked: false,
     disabled: false
   }; */
+
+  handleClick = () => {
+    console.log(this.containerRef);
+  }
  
   render() {
     /* const { checked, disabled } = this.props;
@@ -52,9 +66,9 @@ export default class ProgressRingPresenter extends Component {
 
     
     return (
-      <div className="hig__progress-ring" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+      <div className="hig__progress-ring" role="progressbar" aria-valuemin="0" aria-valuemax="100" ref={this.refContainer}>
 
-        <Medium />
+        <Medium onClick={() => this.handleClick()} />
       </div>
     );
   }
